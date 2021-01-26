@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 
-import { Cat } from './interfaces/cats.interface';
+import { Cat } from './schemas/cat.schema';
 import { CatsService } from './cats.service';
 
 @Controller('cats')

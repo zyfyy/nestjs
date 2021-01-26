@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 // import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CatsController } from './cats/cats.controller';
-import { CatsService } from './cats/cats.service';
 
 import { User } from './users/user.entity';
 import { UsersModule } from './users/users.module';
+import { CatsModule } from './cats/cats.module';
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import { UsersModule } from './users/users.module';
     //   playground: false,
     // }),
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'mysql', // or mongoose
       host: 'localhost',
       port: 3306,
       username: 'test',
@@ -26,9 +26,11 @@ import { UsersModule } from './users/users.module';
       entities: [User],
       synchronize: true,
     }),
+    MongooseModule.forRoot('mongodb://localhost:27017/nest'),
     UsersModule,
+    CatsModule,
   ],
-  controllers: [AppController, CatsController],
-  providers: [AppService, CatsService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
