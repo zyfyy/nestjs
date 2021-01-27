@@ -9,6 +9,9 @@ import { AppService } from './app.service';
 import { User } from '../users/user.entity';
 import { UsersModule } from '../users/users.module';
 import { CatsModule } from '../cats/cats.module';
+import { PersonModule } from 'src/person/person.module';
+import { HobbyModule } from 'src/hobby/hobby.module';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -28,6 +31,14 @@ import { CatsModule } from '../cats/cats.module';
     MongooseModule.forRoot('mongodb://localhost:27017/three-in-one-db', {
       connectionName: 'gql',
     }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      sortSchema: true,
+      playground: true,
+      debug: false,
+    }),
+    PersonModule,
+    HobbyModule,
     UsersModule,
     CatsModule,
   ],
