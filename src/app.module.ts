@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-// import { GraphQLModule } from '@nestjs/graphql';
+import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
@@ -12,10 +12,6 @@ import { CatsModule } from './cats/cats.module';
 
 @Module({
   imports: [
-    // GraphQLModule.forRoot({
-    //   debug: false,
-    //   playground: false,
-    // }),
     TypeOrmModule.forRoot({
       type: 'mysql', // or mongoose
       host: 'localhost',

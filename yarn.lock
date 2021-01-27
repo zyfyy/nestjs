@@ -1185,10 +1185,10 @@
     tslib "2.0.3"
     uuid "8.3.2"
 
-"@nestjs/graphql@^7.9.6":
-  version "7.9.6"
-  resolved "https://registry.npm.taobao.org/@nestjs/graphql/download/@nestjs/graphql-7.9.6.tgz#c7a067a414474a29669510ec1ef56750960882a6"
-  integrity sha1-x6BnpBRHSilmlRDsHvVnUJYIgqY=
+"@nestjs/graphql@^7.9.8":
+  version "7.9.8"
+  resolved "https://registry.npm.taobao.org/@nestjs/graphql/download/@nestjs/graphql-7.9.8.tgz#76d621ad9d6300d6fa027ddb3366adbc0a32dd73"
+  integrity sha1-dtYhrZ1jANb6An3bM2atvAoy3XM=
   dependencies:
     "@graphql-tools/merge" "6.2.7"
     "@graphql-tools/schema" "6.2.4"
@@ -1197,7 +1197,7 @@
     apollo-env "0.6.5"
     apollo-server-core "2.16.1"
     chokidar "3.5.1"
-    fast-glob "3.2.4"
+    fast-glob "3.2.5"
     iterall "1.2.2"
     lodash "4.17.20"
     normalize-path "3.0.0"
@@ -4205,19 +4205,7 @@ fast-diff@^1.1.2:
   resolved "https://registry.npm.taobao.org/fast-diff/download/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
   integrity sha1-c+4RmC2Gyq95WYKNUZz+kn+sXwM=
 
-fast-glob@3.2.4:
-  version "3.2.4"
-  resolved "https://registry.npm.taobao.org/fast-glob/download/fast-glob-3.2.4.tgz?cache=0&sync_timestamp=1610876507758&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffast-glob%2Fdownload%2Ffast-glob-3.2.4.tgz#d20aefbf99579383e7f3cc66529158c9b98554d3"
-  integrity sha1-0grvv5lXk4Pn88xmUpFYybmFVNM=
-  dependencies:
-    "@nodelib/fs.stat" "^2.0.2"
-    "@nodelib/fs.walk" "^1.2.3"
-    glob-parent "^5.1.0"
-    merge2 "^1.3.0"
-    micromatch "^4.0.2"
-    picomatch "^2.2.1"
-
-fast-glob@^3.1.1, fast-glob@^3.2.4:
+fast-glob@3.2.5, fast-glob@^3.1.1, fast-glob@^3.2.4:
   version "3.2.5"
   resolved "https://registry.npm.taobao.org/fast-glob/download/fast-glob-3.2.5.tgz?cache=0&sync_timestamp=1610876507758&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffast-glob%2Fdownload%2Ffast-glob-3.2.5.tgz#7939af2a656de79a4f1901903ee8adcaa7cb9661"
   integrity sha1-eTmvKmVt55pPGQGQPuityqfLlmE=
@@ -4768,7 +4756,7 @@ graphql-tools@^4.0.0:
 
 graphql-tools@^7.0.2:
   version "7.0.2"
-  resolved "https://registry.npm.taobao.org/graphql-tools/download/graphql-tools-7.0.2.tgz?cache=0&sync_timestamp=1611061385815&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgraphql-tools%2Fdownload%2Fgraphql-tools-7.0.2.tgz#ea8a92f1daa1429c6850497bcf8f83ac64fc0fa5"
+  resolved "https://registry.npm.taobao.org/graphql-tools/download/graphql-tools-7.0.2.tgz?cache=0&sync_timestamp=1611059694217&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgraphql-tools%2Fdownload%2Fgraphql-tools-7.0.2.tgz#ea8a92f1daa1429c6850497bcf8f83ac64fc0fa5"
   integrity sha1-6oqS8dqhQpxoUEl7z4+DrGT8D6U=
   dependencies:
     "@graphql-tools/batch-delegate" "^7.0.0"
@@ -4823,9 +4811,14 @@ graphql-ws@4.1.0:
   resolved "https://registry.npm.taobao.org/graphql-ws/download/graphql-ws-4.1.0.tgz#cebe281474b5501d7be66210fb5711633b27fd78"
   integrity sha1-zr4oFHS1UB175mIQ+1cRYzsn/Xg=
 
-graphql@^15.3.0, graphql@^15.4.0:
+graphql@^15.3.0:
   version "15.4.0"
   resolved "https://registry.npm.taobao.org/graphql/download/graphql-15.4.0.tgz?cache=0&sync_timestamp=1603897145207&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgraphql%2Fdownload%2Fgraphql-15.4.0.tgz#e459dea1150da5a106486ba7276518b5295a4347"
+  integrity sha1-5FneoRUNpaEGSGunJ2UYtSlaQ0c=
+
+graphql@^15.4.0:
+  version "15.4.0"
+  resolved "https://registry.npm.taobao.org/graphql/download/graphql-15.4.0.tgz?cache=0&sync_timestamp=1603897178864&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgraphql%2Fdownload%2Fgraphql-15.4.0.tgz#e459dea1150da5a106486ba7276518b5295a4347"
   integrity sha1-5FneoRUNpaEGSGunJ2UYtSlaQ0c=
 
 growly@^1.3.0:
