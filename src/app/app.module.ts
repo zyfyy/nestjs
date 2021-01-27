@@ -25,6 +25,9 @@ import { CatsModule } from '../cats/cats.module';
     MongooseModule.forRoot('mongodb://localhost:27017/nest', {
       connectionName: 'cats',
     }),
+    MongooseModule.forRoot('mongodb://localhost:27017/three-in-one-db', {
+      connectionName: 'gql',
+    }),
     UsersModule,
     CatsModule,
   ],
