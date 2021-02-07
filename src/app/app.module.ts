@@ -1,7 +1,10 @@
+import { join } from 'path';
+
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -11,24 +14,42 @@ import { UsersModule } from '../users/users.module';
 import { CatsModule } from '../cats/cats.module';
 import { PersonModule } from 'src/person/person.module';
 import { HobbyModule } from 'src/hobby/hobby.module';
-import { join } from 'path';
+import configuration from '../config/configuration';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql', // or mongoose
-      host: 'localhost',
-      port: 3306,
-      username: 'test',
-      password: 'lol@12Txt_!',
-      database: 'test',
-      entities: [User],
-      synchronize: true,
+    ConfigModule.forRoot({
+      load: [configuration],
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/nest', {
+    TypeOrmModule.forRootAsync({
+      // https://github.com/nestjsx/nestjs-config/issues/19
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) =>
+        Object.assign(
+          {
+            type: 'mysql', // or mongoose
+            database: 'test',
+            entities: [User],
+            synchronize: true,
+          },
+          configService.get('mysql'),
+        ),
+      inject: [ConfigService],
+    }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get('mg1').url,
+      }),
+      inject: [ConfigService],
       connectionName: 'cats',
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/three-in-one-db', {
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get('mg2').url,
+      }),
+      inject: [ConfigService],
       connectionName: 'gql',
     }),
     GraphQLModule.forRoot({
