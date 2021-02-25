@@ -24,34 +24,36 @@ import configuration from '../config/configuration';
     TypeOrmModule.forRootAsync({
       // https://github.com/nestjsx/nestjs-config/issues/19
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) =>
-        Object.assign(
+      useFactory: async (configService: ConfigService) => {
+        return Object.assign(
           {
             type: 'mysql', // or mongoose
             database: 'test',
             entities: [User],
             synchronize: true,
+            retryAttempts: 0,
           },
           configService.get('mysql'),
-        ),
+        );
+      },
       inject: [ConfigService],
     }),
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        uri: configService.get('mg1').url,
-      }),
-      inject: [ConfigService],
-      connectionName: 'cats',
-    }),
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        uri: configService.get('mg2').url,
-      }),
-      inject: [ConfigService],
-      connectionName: 'gql',
-    }),
+    // MongooseModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   useFactory: async (configService: ConfigService) => ({
+    //     uri: configService.get('mg1').url,
+    //   }),
+    //   inject: [ConfigService],
+    //   connectionName: 'cats',
+    // }),
+    // MongooseModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   useFactory: async (configService: ConfigService) => ({
+    //     uri: configService.get('mg2').url,
+    //   }),
+    //   inject: [ConfigService],
+    //   connectionName: 'gql',
+    // }),
     // GraphQLModule.forRoot({
     //   autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     //   sortSchema: true,
