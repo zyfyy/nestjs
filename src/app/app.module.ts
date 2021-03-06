@@ -11,6 +11,7 @@ import { AppService } from './app.service';
 
 import { User } from '../users/user.entity';
 import { UsersModule } from '../users/users.module';
+import { UploaderModule } from '../uploader/uploader.module';
 import { CatsModule } from '../cats/cats.module';
 import { PersonModule } from 'src/person/person.module';
 import { HobbyModule } from 'src/hobby/hobby.module';
@@ -38,6 +39,7 @@ import configuration from '../config/configuration';
       },
       inject: [ConfigService],
     }),
+    UsersModule,
     // MongooseModule.forRootAsync({
     //   imports: [ConfigModule],
     //   useFactory: async (configService: ConfigService) => ({
@@ -63,7 +65,7 @@ import configuration from '../config/configuration';
     // PersonModule,
     // HobbyModule,
     // CatsModule,
-    UsersModule,
+    UploaderModule,
   ],
   controllers: [AppController],
   providers: [AppService],
